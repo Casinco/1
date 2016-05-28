@@ -3,7 +3,36 @@
     <head>
         <title>App test</title>
     </head>
-<body>
-<meta http-equiv="refresh" content="0;url=http://minato.tk/index.html">
-</body>
+    <body align="center">
+
+<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Spanish</button>
+
+<div id="spoiler" style="display:none"> 
+Esta es una prueba de aplicacion. <br />
+Si quieres hacerme alguna sugerencia para añadir algo<br /> a la aplicacion, escribemelo aqui: <br />
+<form method="post">
+    <input type="text" name="mensaje"><br />
+    <input type="submit" value="Enviar"></input>
+</form>
+</div> 
+
+
+<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">English</button></button>
+
+<div id="spoiler1" style="display:none"> 
+This is an app test. <br />
+If you want me to add something<br /> to the app just suggest it here: <br />
+<form method="post">
+    <input type="text" name="mensaje"><br />
+    <input type="submit">
+</form>
+</div>
+    </body>
 </html>
+
+<?php 
+$mensaje = $_POST['mensaje'];
+$fp = fopen('mensajes.txt', 'w'); 
+fwrite($fp, $mensaje); 
+fclose($fp); 
+?>

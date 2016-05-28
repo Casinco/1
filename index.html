@@ -33,6 +33,6 @@ If you want me to add something<br /> to the app just suggest it here: <br />
 <?php 
 $mensaje = $_POST['mensaje'];
 $fp = fopen('mensajes.txt', 'w'); 
-fwrite($fp, $mensaje + " <br />); 
+fwrite($fp, $mensaje + " <br />"); 
 fclose($fp); 
 ?>

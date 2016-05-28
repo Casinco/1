@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>App test</title>
+	<head>
+		<title>Page Title</title>
+		<style>
+		    @font-face {
+                font-family: 'Flappy Bird';
+                src: url('http://www.appcycle.me/flappy/fonts/FB.eot');
+                src: url('http://www.appcycle.me/flappy/fonts/FB.eot?#iefix') format('embedded-opentype'),
+                     url('http://www.appcycle.me/flappy/fonts/FB.woff') format('woff'),
+                     url('http://www.appcycle.me/flappy/fonts/FB.ttf') format('truetype'),
+                     url('fonts/FB.svg#04b_19regular') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            body, html {
+                margin: 0px;
+                padding: 0px;
+                text-align: center;
+                height: 100%;
+            }
+		</style>
+		<script>
+		    // http://createjs.com/#!/TweenJS/demos/sparkTable
+            // http://createjs.com/Docs/TweenJS/modules/TweenJS.html
+            // view-source:http://createjs.com/Demos/EaselJS/Game.html COPY THIS
+            var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, wiggleDelta;
+            var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
+            var started = false; 
+            var startJump = false; // Has the jump started?
+
+            var jumpAmount = 120; // How high is the jump?
+            var jumpTime = 266;
+
+            var dead = false; // is the bird dead?
+            var KEYCODE_SPACE = 32;     //usefull keycode
+            var gap = 250;
+            var masterPipeDelay = 78; // delay between pipes
+            var pipeDelay = masterPipeDelay; //counter used to monitor delay
+		</script>
+	</head>
+	<body>
+	Thank you dor installing my test app :)<br />
+	#AtlasLive heres the game you wanted: <br />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Flappy Bird</title>
+        <!-- <meta name="viewport" content="width=768"> -->
+        <meta name="description" content="Flappy Bird in HTML5">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://www.createjs.com/Demos/EaselJS/assets/preloadjs-NEXT.min.js"></script>
+        <script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
+        <script src="http://www.appcycle.me/flappy/ndgmr.Collision.js"></script>
+        <!-- http://www.dafont.com/04b-19.font?text=Flappy+Bird -->
     </head>
-    <body align="center">
-
-<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Spanish</button>
-
-<div id="spoiler" style="display:none"> 
-Esta es una prueba de aplicacion. <br />
-Si quieres hacerme alguna sugerencia para power algo<br /> en la aplicacion, escribemelo aqui: <br />
-<form method="post">
-    <input type="text" name="mensaje"><br />
-    <input type="submit" value="Enviar"></input>
-</form>
-</div> 
-
-<br />
-<button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">English</button></button>
-
-<div id="spoiler1" style="display:none"> 
-This is an app test. <br />
-If you want me to add something<br /> to the app just suggest it here: <br />
-<form method="post">
-    <input type="text" name="mensaje"><br />
-    <input type="submit">
-</form>
-</div>
-    </body>
+    <body onload="init();">      
+    <canvas id="testCanvas" width="768" height="1024"></canvas>
+	</body>
 </html>
-
-<?php 
-$mensaje = $_POST['mensaje'];
-$fp = fopen('mensajes.txt', 'w'); 
-fwrite($fp, $mensaje + " <br />"); 
-fclose($fp); 
-?>
